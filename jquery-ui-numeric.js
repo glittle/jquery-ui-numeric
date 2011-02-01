@@ -82,7 +82,8 @@
             if (o.maxValue !== false && t._value > o.maxValue)
                 t._value = o.maxValue;
 
-            t._setInputValue(t._value);
+            // t._setInputValue(t._value); --> was firing onchange during init
+            t.widget().attr('value', t._format(t._value));
             w.attr('title', o.title).wrap($('<div class="ui-widget ui-widget-content ui-corner-all ui-numeric" />'));
 
             if (o.showCurrency)
